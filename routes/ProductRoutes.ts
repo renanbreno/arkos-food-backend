@@ -10,16 +10,16 @@ routes.post('/', async (req: Request, res: Response) => {
         await Product.create(userData);
         res.sendStatus(201);
     } catch (error) {
-        res.sendStatus(500).json({ error: error });
+        res.status(500).json({ error: error });
     }
 })
 
 routes.get('/', async (req: Request, res: Response) => {
     try {
         const products = await Product.find()
-        res.sendStatus(201).json(products);
+        res.status(200).json(products);
     } catch (error) {
-        res.sendStatus(500).json({ error: error})
+        res.status(500).json({ error: error})
     }
 })
 

@@ -10,16 +10,16 @@ routes.post('/', async (req: Request, res: Response) => {
         await User.create(userData);
         res.sendStatus(201);
     } catch (error) {
-        res.sendStatus(500).json({ error: error });
+        res.status(500).json({ error: error });
     }
 })
 
 routes.get('/:email', async (req: Request, res: Response) => {
     try {
         const user = await User.findOne(req.params.email);
-        res.sendStatus(201).json(user);
+        res.status(200).json(user);
     } catch (error) {
-        res.sendStatus(500).json({ error: error})
+        res.status(500).json({ error: error})
     }
 })
 
