@@ -1,15 +1,14 @@
 {
-    "name": "arkos-food-backend",
     "version": 2,
     "public": true,
     "build": {
-        "src": "index.ts",
+        "src": "./index.ts",
         "use": "@vercel/node"
     },
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "index.ts"
+            "dest": "/"
         }
     ]
 }
