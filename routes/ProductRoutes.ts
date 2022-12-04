@@ -1,8 +1,8 @@
 const routes = require('express').Router();
 const Product = require('../models/Products');
-import { VercelRequest, VercelResponse } from '@vercel/node';
+import { Request, Response } from 'express';
 
-routes.post('/', async (req: VercelRequest, res: VercelResponse) => {
+routes.post('/', async (req: Request, res: Response) => {
     const { name, description, avaliation, avaliationAmount, inventory, price, productImg } = req.body;
     const userData = { name, description, avaliation, avaliationAmount, inventory, price, productImg }
 
@@ -14,7 +14,7 @@ routes.post('/', async (req: VercelRequest, res: VercelResponse) => {
     }
 })
 
-routes.get('/', async (req: VercelRequest, res: VercelResponse) => {
+routes.get('/', async (req: Request, res: Response) => {
     try {
         const products = await Product.find()
         res.status(200).json(products);
