@@ -16,7 +16,6 @@ app.use('/product', productRoutes);
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@arkos.xvm5lke.mongodb.net/?retryWrites=true&w=majority`)
 .then(() => {
-    console.log("Iniciou o DB");
     app.listen(process.env.PORT || 3000);
 })
 .catch((error: string) => console.log(error));
